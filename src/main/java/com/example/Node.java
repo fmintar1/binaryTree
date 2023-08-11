@@ -2,6 +2,9 @@ package com.example;
 
 public class Node {
 
+    /*
+     * ALL NODES IN BINARY TREE NEEDS TO HAVE INT FOR THE KEY, NAME FOR THE NODE, LEFT CHILD FOR LESSER KEY, AND RIGHT CHILD FOR BIGGER KEY.
+     */
     int key;
     String name;
 
@@ -14,7 +17,7 @@ public class Node {
     }
 
     public String toString() {
-        return (name + " has a key " + key);
+        return (name + " has a key " + key + "\n");
     }
 
 }
