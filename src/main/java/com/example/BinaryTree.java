@@ -17,29 +17,44 @@ public class BinaryTree {
         
         //If tree is not empty, nodes are inserted according to the key
         } else {
-
-            //Create 2 nodes, one for the current node & one for the parent
-            Node focusNode = root;
-            Node parent;
-
             //Start an endless loop
-            while(true) {
+            //if key is lower than the parent key, set the left child to focus. If null, set the new node to the left child and exit
+            //if key is higher than the parent key, set the right child to focus. If null, set the new node to the right child and exit
+            
+            //VERSION 1
+            // Node focusNode = root;
+            // Node parent;
+            // while(true) {
+            //     parent = focusNode;
+            //     if(key < parent.key) {
+            //         focusNode = parent.leftChild;
+            //         if(focusNode == null) {
+            //             parent.leftChild = newNode;
+            //             return;
+            //         }
+            //     } else {
+            //         focusNode = parent.rightChild;
+            //         if(focusNode == null) {
+            //             parent.rightChild = newNode;
+            //             return;
+            //         }
+            //     }
+            // }
 
-                //set parent to be the node needs to be focused
-                parent = focusNode;
-
-                //if key is lower than the parent key, set the left child to focus. If null, set the new node to the left child and exit
+            //VERSION 2
+            Node parent = root;
+            while(true){
                 if(key < parent.key) {
-                    focusNode = parent.leftChild;
-                    if(parent.leftChild == null) {
+                    if(parent.leftChild != null) {
+                        parent = parent.leftChild;
+                    } else {
                         parent.leftChild = newNode;
                         return;
                     }
-
-                //if key is higher than the parent key, set the right child to focus. If null, set the new node to the right child and exit
                 } else {
-                    focusNode = parent.rightChild;
-                    if(parent.rightChild == null) {
+                    if(parent.rightChild != null) {
+                        parent = parent.rightChild;
+                    } else {
                         parent.rightChild = newNode;
                         return;
                     }
