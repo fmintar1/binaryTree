@@ -28,7 +28,8 @@ public class BinaryTree {
 
                     if(focusNode == null) {
 
-                        focusNode = newNode;
+                        // focusNode = newNode;
+                        parent.leftChild = newNode;
                         return;
 
                     }
@@ -39,7 +40,8 @@ public class BinaryTree {
 
                     if(focusNode == null) {
 
-                        focusNode = newNode;
+                        // focusNode = newNode;
+                        parent.rightChild = newNode;
                         return;
 
                     }
@@ -51,5 +53,21 @@ public class BinaryTree {
         }
 
     }
+
+    public void inOrderTraverseList(Node focusNode) {
+
+        if(focusNode != null) {
+
+            inOrderTraverseList(focusNode.leftChild);
+
+            System.out.println(focusNode);
+
+            inOrderTraverseList(focusNode.rightChild);
+
+        }
+
+    }
+
+    public void 
 
 }
